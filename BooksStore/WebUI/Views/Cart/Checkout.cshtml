@@ -1,0 +1,73 @@
+﻿@model Domain.Entities.ShippingDetails
+
+@{
+    /**/
+
+    ViewBag.Title = "BookStore: форма заказа";
+}
+
+<h2>Оформить заказ</h2>
+<p>Пожалуйста, введите ваши контактные данные</p>
+
+@using (Html.BeginForm())
+{
+    @*<h3>Данные</h3>
+    <div class="form-group">
+        <label>Введите ваше имя:</label>
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    </div>
+
+    <h3>Адрес доставки</h3>
+    <div class="form-group">
+        <label>Введите адрес доставки:</label>
+        @Html.TextBoxFor(x => x.Line1, new { @class = "form-control" })
+    </div>
+
+    <h3>Город</h3>
+    <div class="form-group">
+        <label>Введите ваш город:</label>
+        @Html.TextBoxFor(x => x.City, new { @class = "form-control" })
+    </div>
+
+    <h3>Страна</h3>
+    <div class="form-group">
+        <label>Введите вашу страну:</label>
+        @Html.TextBoxFor(x => x.Country, new { @class = "form-control" })
+    </div>*@
+
+    @Html.ValidationSummary();
+    <h3>Данные</h3>
+    <div class="form-group">
+            <label>Введите ваше имя:</label>
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    </div>
+
+    <h3>Адресные данные</h3>
+    foreach(var property in ViewData.ModelMetadata.Properties)
+    {
+        if(property.PropertyName != "Name"  && property.PropertyName !="GiftWrap")
+        {
+            <div class="form-group">
+                <label>
+                    @(property.DisplayName ?? property.PropertyName)
+                </label>
+                @Html.TextBox(property.PropertyName, null, new { @class = "form-control"})
+            </div>
+        }
+    }
+
+
+
+    <h3>Дополнительно</h3>
+    <div class="form-group">
+        <label>
+            @Html.EditorFor(x => x.GiftWrap)
+            Использовать подарочную упаковку книг
+        </label>
+    </div>
+
+    <div class="text-center">
+        <input class="btn btn-primary" type="submit" value="Подтвердить заказ"/>
+    </div>
+}
+

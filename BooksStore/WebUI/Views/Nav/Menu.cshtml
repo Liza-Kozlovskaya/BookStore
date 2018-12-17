@@ -1,0 +1,30 @@
+﻿@model IEnumerable<string>
+
+@*Колонка для выбора жанра книги*@
+
+<div>
+    <h3>Выберите жанр книги:</h3>
+</div>
+<style>
+    h3 {
+        margin-left: 35px;
+    }
+</style>
+
+@Html.ActionLink("Все книги", "List", "Books", null, new { @class="btn btn-block btn-default btn-lg" })
+
+@foreach(var link in Model)
+{
+    @Html.RouteLink(link, new
+{
+    controller = "Books",
+    action ="List",
+    genre = link,
+    page =1
+}, new
+{
+    @class = "btn btn-block btn-default btn-lg"
+    +(link == ViewBag.SelectedGenre ? "btn-primary" : "")
+})
+
+}

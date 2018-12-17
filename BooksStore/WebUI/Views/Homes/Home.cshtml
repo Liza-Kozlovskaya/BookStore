@@ -1,0 +1,53 @@
+﻿
+@{
+    Layout = null;
+}
+
+@*Страница "Информация о магазине"*@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/StyleHome.css" rel="stylesheet" />
+    <title>Home</title>
+</head>
+<body>
+    <div>
+        <div class="navbar navbar-inverse" role="navigation">
+            @Html.Action("Summary", "Cart")
+        </div>
+        
+        <img id="logo" src="~/Img/picturebook.jpg" alt="BookStore - магазин книг" />
+        <div id="intro">
+            <p>
+                <h2><strong>BookStore - магазин книг</strong></h2>
+            </p>
+            <p class="text text-info">В приложении реализованы такие функции как:</p>
+            <p>
+                <ul>
+                    <li>Просмотр всех книг</li>
+                    <li>Просмотр отдельного жанра книг</li>
+                    <li>Нумерация страниц</li>
+                    <li>Добавление понравившейся книги в корзину</li>
+                    <li>Отображение количества книг и общая стоимость как на навигационной панеле, так и в самой корзине</li>
+                    <li>Книгу можно удалить из корзины</li>
+                    <li>Как только пользователь добавит все понравившиеся книги в корзину, он может оформить свой заказ</li>
+                    <li>Реализована проверка вводимых данных пользователем при оформлении заказа</li>
+                    <li>Реализована проверка корзины при оформлении заказа</li>
+                    <li>Если оформление прошло успешно, то отображается окно принятия заказа</li>
+                    <li>Реализована функция "Войти как администратор" с помощью которой можно редактировать книги в магазине</li>
+                    <li>При редактировании администратор не сможет ввести отрицательную цену книги, а также оставить поле пустым</li>
+                    <li>При успешном редактировании выводится информация, что n-ная книга была отредактирована</li>
+                </ul>
+            </p>
+
+
+        </div>
+    </div>
+</body>
+</html>

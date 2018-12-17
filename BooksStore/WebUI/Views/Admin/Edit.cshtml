@@ -1,0 +1,49 @@
+﻿if (this.User.IsInRole("admin"))
+{
+@model Domain.Entities.Book
+
+@{
+    ViewBag.Title = "Режим редактирования";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@*Админ. панель для редактирования книг*@
+
+<div class="panel">
+    <div>
+        <h3>Редактирование книг "@Model.Name"</h3>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        <div class="panel-body">
+            @Html.HiddenFor(m => m.BookId)
+            @foreach (var property in ViewData.ModelMetadata.Properties)
+            {
+                if (property.PropertyName != "BookId")
+                {
+                    <div class=" form-group">
+                        <label>@(property.DisplayName ?? property.PropertyName)</label>
+                        @if (property.PropertyName == "Description")
+                        {
+                            @Html.TextArea(property.PropertyName, null, new { @class = "form-control", rows = 5 })
+                        }
+                        else
+                        {
+                            @Html.TextArea(property.PropertyName, null, new { @class = "form-control" })
+                        }
+                        @Html.ValidationMessage(property.PropertyName)
+                    </div>
+                }
+            }
+        </div>
+
+        //Отмена и сохранение редактировани
+        <div class="panel-footer">
+            <input type="submit" value="Сохранить" class="btn btn-primary" />
+            @Html.ActionLink("Отмена", "Index", null, new { @class = "btn btn-default" })
+        </div>
+    }
+</div>
+        }

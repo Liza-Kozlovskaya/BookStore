@@ -1,0 +1,32 @@
+﻿@model Domain.Entities.Book
+
+@*Представление книги, её добавление в корзину*@
+
+<div class="well">
+    <div class="row">
+        <div class="col-xs-10">
+            <h3>
+                <strong>@Model.Name</strong>
+            </h3>
+            <h4>
+                <strong>Автор: @Model.Author</strong>
+            </h4>
+        </div>
+        <div class="col-xs-2">
+            <h3>
+                <strong id="price" class="pull-right label label-primary">
+                    Цена: @Model.Price.ToString("# руб")
+                </strong>
+            </h3>
+            @using (Html.BeginForm("AddToCart", "Cart"))
+            {
+                <div class="pull-right">
+                    @Html.HiddenFor(x => x.BookId)
+                    @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                    <input type="submit" class="btn btn-success" value="Добавить в корзину"/>
+                 </div>
+            }
+        </div>
+    </div>
+    <span class="lead">@Model.Description</span>
+</div>

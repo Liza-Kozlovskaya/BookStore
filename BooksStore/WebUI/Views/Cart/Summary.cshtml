@@ -1,0 +1,69 @@
+﻿@model Domain.Entities.Cart
+
+
+<div class="navbar-right">
+    @*//отображение на панеле таких кнопок как: заказать книгу, информация о магазине,
+        информация о магазине, возвращение к списку книг*@
+
+    <ul class="nav navbar-nav navbar-right">
+
+        @*////////////// Администратор ///////////////////*@
+        @if (this.User.IsInRole("admin"))
+        {
+            <li><a href="@Url.Action("Index","Admin")"><span class="glyphicon glyphicon-cog"></span> Admin panel</a></li>
+        }
+
+        @if (this.User.IsInRole("admin"))
+        {
+            <li><a href="@Url.Action("Index","Users")"><span class="glyphicon glyphicon-cog"></span> Edit user</a></li>
+        }
+
+
+        @*////////////// Модератор ///////////////////*@
+        @if (this.User.IsInRole("moder"))
+        {
+            <li><a href="@Url.Action("Index","Admin")"><span class="glyphicon glyphicon-cog"></span> Admin panel</a></li>
+        }
+
+
+        @if (this.User.Identity.IsAuthenticated)
+        {
+            @*Выход*@
+            <li><a href="@Url.Action("Logoff","Account") "><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        }
+
+        else
+        {
+            @*Вход/ Регистрация*@
+            <li><a href="@Url.Action("Register","Account") "><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="@Url.Action("Login","Account")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        }
+
+        <li><a href="@Url.Action("Index","Cart")"><span class="glyphicon glyphicon-shopping-cart"></span> Заказать</a></li>
+    </ul>
+
+</div>
+
+<div class="navbar-left">
+    <ul class="nav navbar-nav navbar-left">
+        <li><a href="@Url.Action("Home", "Homes")"><span class="glyphicon glyphicon-home"></span></a></li>
+        <li><a href="@Url.Action("List", "Books")">BookStore - магазин книг</a></li>
+    </ul>
+</div>
+
+
+@*//отображение на панеле количества добавленых книг в корзину и общая сумма*@
+<div class="navbar-text navbar-right">
+    @if(this.User.Identity.IsAuthenticated)
+    {
+    <b>Ваш логин: @this.User.Identity.Name &emsp;</b>
+    }
+    else
+    {
+    <b>Вы не авторизированы</b>
+    }
+    <b>Ваша корзина:</b>
+    @Model.Lines.Sum(x => x.Quantity) книг,
+    @Model.ComputeTotalValue().ToString("# руб")
+</div>
+

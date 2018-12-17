@@ -1,0 +1,21 @@
+﻿.navbar-right 
+{
+    float: right !important;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+img#logo {
+    width: 700px;
+    display: block;
+    margin: auto;
+    margin-bottom: 25px;
+}
+
+div#intro {
+    width: 500px;
+    text-align: center;
+    display: block;
+    margin: auto;
+}
+

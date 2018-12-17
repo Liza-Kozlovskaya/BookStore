@@ -1,0 +1,43 @@
+﻿@model Domain.Entities.User
+
+@{
+    ViewBag.Title = "Админ панель: редактирование пользователей";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<div class="panel"
+    <div class="panel-heading">
+        <h2>Редактирование пользователей "@Model.Email"</h2>
+    </div>
+
+@using (Html.BeginForm())
+{
+    <div class="panel-body">
+        @Html.HiddenFor(m=>m.Id)
+@foreach (var property in ViewData.ModelMetadata.Properties)
+{
+    if (property.PropertyName != "Id")
+    {
+        <div class="form-group">
+            <label>@(property.DisplayName ?? property.PropertyName)</label>
+            @if (property.PropertyName == "Descriprion")
+            {
+                @Html.TextArea(property.PropertyName, null, new { @class = "form-control", rows = 5 })
+            }
+            else
+            {
+                @Html.TextArea(property.PropertyName, null, new { @class = "form-control" })
+            }
+            @Html.ValidationMessage(property.PropertyName)
+        </div>
+    }
+
+}
+    </div>
+
+
+    <div class="panel-footer">
+        <input type="submit" value="Сохранить" class="btn btn-primary" />
+        @Html.ActionLink("Отмена", "Index")
+    </div>    
+}
+</div>
