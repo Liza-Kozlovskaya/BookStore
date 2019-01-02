@@ -11,7 +11,7 @@ namespace WebUI.Controllers
     //информация о книгах в хранилище
     public class BooksController : Controller
     {
-        private IBookRepository repository; //зависимость от интерфеса
+        private IBookRepository repository;
         public int pageSize = 4;
 
         public BooksController(IBookRepository repo)
@@ -30,9 +30,9 @@ namespace WebUI.Controllers
                 .Take(pageSize),
                 PagingInfo = new PagingInfo
                 {
-                    CurrentPage = page,
-                    ItemsPerPage = pageSize,
-                    TotalItems = genre == null ? 
+                    CurrentPage = page, //текущая страница
+                    ItemsPerPage = pageSize, //количество книг на странице
+                    TotalItems = genre == null ?  //всего товаров в каталоге
                          repository.Books.Count() : 
                          repository.Books.Where(book => book.Genre == genre).Count()
                 },

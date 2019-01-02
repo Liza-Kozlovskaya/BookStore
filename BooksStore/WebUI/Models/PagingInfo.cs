@@ -14,6 +14,7 @@ namespace WebUI.Models
         {
             get
             {
+                //количество страниц в каталоге
                 return (int)Math.Ceiling((decimal)TotalItems / ItemsPerPage);
             }
         }

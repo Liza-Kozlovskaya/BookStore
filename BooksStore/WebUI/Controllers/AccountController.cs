@@ -10,6 +10,11 @@ namespace WebUI.Controllers
 {
     public class AccountController : Controller
     {
+        //Методы управления авторизации
+        
+            /// <summary>
+            /// Вход на сайт
+            /// </summary>
         public ActionResult Login()
         {
             return View();
@@ -19,18 +24,17 @@ namespace WebUI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid) //проверка на корректность введённых данных
             {
                 // поиск пользователя в бд
                 User user = null;
                 using (UserContext db = new UserContext())
                 {
                     user = db.Users.FirstOrDefault(u => u.Email == model.Name && u.Password == model.Password);
-
                 }
                 if (user != null)
                 {
-                    FormsAuthentication.SetAuthCookie(model.Name, false);
+                    FormsAuthentication.SetAuthCookie(model.Name, false); 
                     return RedirectToAction("List", "Books");
                 }
                 else
@@ -42,6 +46,9 @@ namespace WebUI.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Регистрация на сайте
+        /// </summary>
         public ActionResult Register()
         {
             return View();
@@ -51,7 +58,7 @@ namespace WebUI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterModel model)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid) // проверка на валидность
             {
                 User user = null;
                 using (UserContext db = new UserContext())
@@ -85,6 +92,10 @@ namespace WebUI.Controllers
 
             return View(model);
         }
+
+        /// <summary>
+        /// Выход
+        /// </summary>
         public ActionResult Logoff()
         {
             FormsAuthentication.SignOut();

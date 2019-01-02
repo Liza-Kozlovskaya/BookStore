@@ -5,6 +5,16 @@
     ViewBag.Title = "Книги";
 }
 
+
+    @*баннер магазина*@
+@*<img id="logo" src="~/Img/3.jpg" alt=" " />*@
+
+@*переадресация по картинке на вход*@
+<a href="@Url.Action("Login","Account")">
+    <img id="logo" src="~/Img/4.png" alt=" " />
+</a>
+
+
 @foreach (var book in Model.Books)
 {
     @Html.Partial("_BookSummary", book)

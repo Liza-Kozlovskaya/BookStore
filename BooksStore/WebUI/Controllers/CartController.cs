@@ -13,6 +13,7 @@ namespace WebUI.Controllers
     public class CartController : Controller
     {
         private IBookRepository repository;
+
         //обработка запроса POST Формы, когда пользователь нажимает на "оформить заказ"
         private IOrderProcessor orderProcessor; 
 
@@ -30,18 +31,6 @@ namespace WebUI.Controllers
                 ReturnUrl = returnUrl
             });
         }
-
-
-        //public Cart GetCart() //метод для добавления и извлечения из корзины
-        //{
-        //    Cart cart = (Cart)Session["Cart"];
-        //    if(cart == null)
-        //    {
-        //        cart = new Cart();
-        //        Session["Cart"] = cart;
-        //    }
-        //    return cart;
-        //}
 
         public RedirectToRouteResult AddToCart(Cart cart, int bookId, string returnUrl) //метод добавления в корзину
         {
@@ -67,11 +56,13 @@ namespace WebUI.Controllers
             return RedirectToAction("Index", new { returnUrl });
         }
 
+        //отображение на панеле
         public PartialViewResult Summary(Cart cart)
         {
             return PartialView(cart);
         }
 
+        //оформление заказа с вводом контактных данных
         public ViewResult Checkout()
         {
             return View(new ShippingDetails());

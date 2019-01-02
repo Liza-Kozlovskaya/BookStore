@@ -131,12 +131,11 @@
     <Content Include="Content\StyleHome.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Img\if_home_house_62874.png" />
-    <Content Include="Img\if_preferences_settings_62983.png" />
-    <Content Include="Img\if_shopping_cart_63026.png" />
-    <Content Include="Img\if_shopping_cart_ecommerce_63024.png" />
-    <Content Include="Img\if_user_man_kid_63069.png" />
+    <Content Include="Img\3.jpg" />
+    <Content Include="Img\4.png" />
     <Content Include="Img\picturebook.jpg" />
+    <Content Include="Img\1.png" />
+    <Content Include="Img\2.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />

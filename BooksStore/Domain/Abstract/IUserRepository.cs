@@ -9,7 +9,7 @@ namespace Domain.Abstract
 {
     public interface IUserRepository
     {
-        IEnumerable<User> Users { get; }
+        IEnumerable<User> Users { get; } //получаем последовательность всех пользователей
         void SaveUser(User user);
     }
 }

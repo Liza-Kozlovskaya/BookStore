@@ -42,6 +42,7 @@ namespace Domain.Entities
 
         public decimal ComputeTotalValue()//метод вычисления общей стоимости
         {
+            //умножается количество книг на цену 
             return lineCollection.Sum(e => e.Book.Price * e.Quantity);
         }
 
@@ -49,11 +50,5 @@ namespace Domain.Entities
         {
             lineCollection.Clear();
         }
-    }
-
-    public class CartLine
-    {
-        public Book Book { get; set;}
-        public int Quantity { get; set; }
     }
 }

@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace Domain.Concrete
 {
+    //Представляет хранилище. Реализует интерфес IUserRepository и использует BContext
+    //для извлечения данных из бд
+
     public class EFUserRepository : IUserRepository 
     {
         BContext context = new BContext();
@@ -21,11 +24,11 @@ namespace Domain.Concrete
 
         public void SaveUser(User user)
         {
-            if (user.Id == 0)
+            if (user.Id == 0) //добавляет пользователя, если значение индекса равно 0
             {
                 context.Users.Add(user);
             }
-            else
+            else //изменение бд
             {
                 User dbEntry = context.Users.Find(user.Id);
                 if (dbEntry != null)

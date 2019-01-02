@@ -9,9 +9,7 @@ namespace WebUI.Models
 {
     public class UserContext : DbContext
     {
-        public UserContext() :
-            base("DefaultConnection")
-        { }
+        public UserContext() : base("BContext") { }
 
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
@@ -19,6 +17,9 @@ namespace WebUI.Models
 
     public class UserObInitializer : CreateDatabaseIfNotExists<UserContext>
     {
+
+        //добавление ролей в бд
+        //статически добавлены администратор и модератор
         protected override void Seed(UserContext db)
         {
             db.Roles.Add(new Role { Id = 1, Name = "admin" });

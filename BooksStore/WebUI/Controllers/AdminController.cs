@@ -18,6 +18,7 @@ namespace WebUI.Controllers
             repository = repo;
         }
 
+        //выводит полный список всех книг в бд
         public ViewResult Index()
         {
             return View(repository.Books);

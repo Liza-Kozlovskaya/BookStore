@@ -9,14 +9,17 @@ using System.Threading.Tasks;
 namespace Domain.Concrete
 {
     //Представляет хранилище. Реализует интерфес IBookRepository и использует EFDbContext
-    //для извлечения данных из бд с помощью Entity Framework
+    //для извлечения данных из бд
 
     public class EFBookRepository : IBookRepository
     {
         EFDbContext context = new EFDbContext();
         public IEnumerable<Book> Books
         {
-            get { return context.Books; }
+            get
+            {
+                return context.Books;
+            }
         }
 
         public void SaveBook(Book book) 

@@ -34,7 +34,6 @@ namespace WebUI.Infrastructure
             kernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>()
                 .WithConstructorArgument("setting", emailSettings);
 
-            //////////////////////////////////////////////////////////////
             kernel.Bind<IUserRepository>().To<EFUserRepository>();
 
         }
