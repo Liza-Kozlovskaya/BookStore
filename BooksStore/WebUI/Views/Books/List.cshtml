@@ -4,16 +4,15 @@
 @{
     ViewBag.Title = "Книги";
 }
+<div>
+    <a href="@Url.Action("Login","Account")"><img src="~/Img/4_01.png" /></a><a href="@Url.Action("Login","Account")"><img src="~/Img/4_02.png" /></a><a href="@Url.Action("Login","Account")"><img src="~/Img/4_03.png" /></a><a href="@Url.Action("Login","Account")"><img src="~/Img/4_04.png" /></a><a href="@Url.Action("Login","Account")"><img src="~/Img/4_05.png" /></a><a href="@Url.Action("Login","Account")"><img src="~/Img/4_06.png" /></a><a href="@Url.Action("Login","Account")"><img src="~/Img/4_07.png" /></a><a href="@Url.Action("Login","Account")"><img src="~/Img/8.png" /></a>
+</div>
 
 
-    @*баннер магазина*@
-@*<img id="logo" src="~/Img/3.jpg" alt=" " />*@
-
-@*переадресация по картинке на вход*@
-<a href="@Url.Action("Login","Account")">
-    <img id="logo" src="~/Img/4.png" alt=" " />
-</a>
-
+<input type="text" name="filter" placeholder="Input name with search..." />
+<span>
+    <button type="submit">Search</button>
+</span>
 
 @foreach (var book in Model.Books)
 {
