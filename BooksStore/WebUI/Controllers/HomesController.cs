@@ -9,7 +9,7 @@ namespace WebUI.Controllers
     public class HomesController : Controller
     {
         //контроллер начальной страницы с информацией
-        public ActionResult Home()
+        public ActionResult SaleStore()
         {
             return View();
         }
