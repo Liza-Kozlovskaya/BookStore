@@ -6,10 +6,10 @@ using System.Web.Mvc;
 
 namespace WebUI.Controllers
 {
-    public class HomesController : Controller
+    public class PrivateOfficeController : Controller
     {
-        //контроллер начальной страницы с информацией
-        public ActionResult Home()
+        // GET: PrivateOffice
+        public ActionResult PrivateOffice()
         {
             return View();
         }

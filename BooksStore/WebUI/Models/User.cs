@@ -16,6 +16,7 @@ namespace WebUI.Models
         public int Age { get; set; }
         public int RoleId { get; set; }
         public Role Role { get; set; }
+        public string UserName { get; set; }
     }
 
     public class Role

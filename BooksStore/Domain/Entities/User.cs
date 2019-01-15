@@ -33,6 +33,10 @@ namespace Domain.Entities
         [Required]
         [Range(1, 3, ErrorMessage = "Пожалуйста, укажите роль пользователя")]
         public int RoleId { get; set; }
+
+        [Display(Name = "UserName")]
+        [Required(ErrorMessage = "Пожалуйста, введите имя пользователя")]
+        public string UserName { get; set; }
     }
 
     public class Role

@@ -128,12 +128,15 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\JavaScript.js" />
+    <Content Include="Content\OfficeStyleSheet.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\StyleHome.css" />
     <Content Include="Content\StyleBanner.css" />
     <Content Include="Content\StyleSheet1.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Img\23.jpg" />
+    <Content Include="Img\24.jpg" />
     <Content Include="Img\4_01.png" />
     <Content Include="Img\4_02.png" />
     <Content Include="Img\4_03.png" />
@@ -147,13 +150,19 @@
     <Content Include="Img\picturebook.jpg" />
     <Content Include="Img\1.png" />
     <Content Include="Img\2.jpg" />
+    <Content Include="Img\Simple3.png" />
     <Content Include="Img\книга1.jpg" />
+    <Content Include="Img\книга10.jpg" />
+    <Content Include="Img\книга11.jpg" />
+    <Content Include="Img\книга12.jpg" />
     <Content Include="Img\книга2.jpg" />
     <Content Include="Img\книга3.jpg" />
     <Content Include="Img\книга4.jpg" />
     <Content Include="Img\книга5.jpg" />
     <Content Include="Img\книга6.jpg" />
     <Content Include="Img\книга7.jpg" />
+    <Content Include="Img\книга8.jpg" />
+    <Content Include="Img\книга9.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
@@ -201,6 +210,7 @@
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomesController.cs" />
     <Compile Include="Controllers\NavController.cs" />
+    <Compile Include="Controllers\PrivateOfficeController.cs" />
     <Compile Include="Controllers\SaleStoreController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -250,6 +260,7 @@
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Users\EditUser.cshtml" />
     <Content Include="Views\SaleStore\Sale.cshtml" />
+    <Content Include="Views\PrivateOffice\PrivateOffice.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -72,12 +72,7 @@ C:\Users\A-Servis\source\repos\BooksStore\Domain\bin\Debug\System.Web.Razor.xml
 C:\Users\A-Servis\source\repos\BooksStore\Domain\bin\Debug\System.Web.WebPages.xml
 C:\Users\A-Servis\source\repos\BooksStore\Domain\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Users\A-Servis\source\repos\BooksStore\Domain\bin\Debug\System.Web.WebPages.Razor.xml
-C:\Users\A-Servis\source\repos\BooksStore\Domain\bin\Debug\ru\System.Web.Helpers.resources.dll
 C:\Users\A-Servis\source\repos\BooksStore\Domain\bin\Debug\ru\System.Web.Mvc.resources.dll
-C:\Users\A-Servis\source\repos\BooksStore\Domain\bin\Debug\ru\System.Web.Razor.resources.dll
-C:\Users\A-Servis\source\repos\BooksStore\Domain\bin\Debug\ru\System.Web.WebPages.resources.dll
-C:\Users\A-Servis\source\repos\BooksStore\Domain\bin\Debug\ru\System.Web.WebPages.Deployment.resources.dll
-C:\Users\A-Servis\source\repos\BooksStore\Domain\bin\Debug\ru\System.Web.WebPages.Razor.resources.dll
 C:\Users\A-Servis\source\repos\BooksStore\Domain\obj\Debug\Domain.csproj.CoreCompileInputs.cache
 C:\Users\A-Servis\source\repos\BooksStore\Domain\obj\Debug\Domain.csproj.CopyComplete
 C:\Users\A-Servis\source\repos\BooksStore\Domain\obj\Debug\Domain.dll
