@@ -38,9 +38,22 @@ namespace Domain.Concrete
                     dbEntry.Description = book.Description;
                     dbEntry.Genre = book.Genre;
                     dbEntry.Price = book.Price;
+                    dbEntry.ImageData = book.ImageData;
+                    dbEntry.ImageMimeType = book.ImageMimeType;
                 }
+            }
+            context.SaveChanges();
+        }
+
+        public Book DeleteBook(int bookId)
+        {
+            Book dbEntry = context.Books.Find(bookId);
+            if (dbEntry != null)
+            {
+                context.Books.Remove(dbEntry);
                 context.SaveChanges();
             }
+            return dbEntry;
         }
     }
 }

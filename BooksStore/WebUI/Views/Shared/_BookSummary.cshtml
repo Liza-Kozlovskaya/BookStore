@@ -12,21 +12,41 @@
                 <strong>Автор: @Model.Author</strong>
             </h4>
         </div>
+
+
+
         <div class="col-xs-2">
+
+
             <h3>
                 <strong id="price" class="pull-right label label-primary">
                     Цена: @Model.Price.ToString("# руб")
                 </strong>
             </h3>
+
+
             @using (Html.BeginForm("AddToCart", "Cart"))
             {
                 <div class="pull-right">
                     @Html.HiddenFor(x => x.BookId)
                     @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-                    <input type="submit" class="btn btn-success" value="Добавить в корзину"/>
-                 </div>
+                    <input type="submit" class="btn btn-success" value="Добавить в корзину" />
+                </div>
             }
         </div>
+        <p>
+            @if (Model.ImageData == null)
+            {
+                <div class="form-control-static">Нет картинки</div>
+            }
+            else
+            {
+                <img class="img-thumbnail" width="175" height="175" hspace="30" vspace="10"
+                     src="@Url.Action("GetImage", "Books",
+                        new { Model.BookId })" align="left" />
+            }
+            <br/>
+            <span class="lead" >@Model.Description</span>
+        </p>
     </div>
-    <span class="lead">@Model.Description</span>
 </div>

@@ -38,8 +38,10 @@ namespace Domain.Entities
 
         [Display(Name = "Цена")]
         [Required]
-        [Range(0.01, double.MaxValue, ErrorMessage = "Пожалуйста, введитеположительное значение цены")] 
+        [Range(0.01, double.MaxValue, ErrorMessage = "Пожалуйста, введите положительное значение цены")] 
         //ограничение на ввод чисел меньше 0
         public decimal Price { get; set; }
+        public byte[] ImageData { get; set; }
+        public string ImageMimeType { get; set; }
     }
 }

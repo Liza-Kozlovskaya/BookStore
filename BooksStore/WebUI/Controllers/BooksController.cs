@@ -1,4 +1,5 @@
 ﻿using Domain.Abstract;
+using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,20 @@ namespace WebUI.Controllers
         public BooksController(IBookRepository repo)
         {
             repository = repo;
+        }
+
+        public FileContentResult GetImage(int bookId)
+        {
+            Book book = repository.Books.FirstOrDefault(b => b.BookId == bookId);
+
+            if (book != null)
+            {
+                return File(book.ImageData, book.ImageMimeType);
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public ViewResult List(string genre, int page = 1) //лист товаров

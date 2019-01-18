@@ -129,6 +129,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\JavaScript.js" />
     <Content Include="Content\OfficeStyleSheet.css" />
+    <Content Include="Content\PersonalPage.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\StyleHome.css" />
     <Content Include="Content\StyleBanner.css" />
@@ -155,7 +156,15 @@
     <Content Include="Img\книга10.jpg" />
     <Content Include="Img\книга11.jpg" />
     <Content Include="Img\книга12.jpg" />
+    <Content Include="Img\книга13.jpg" />
+    <Content Include="Img\книга14.jpg" />
+    <Content Include="Img\книга15.jpg" />
+    <Content Include="Img\книга16.jpg" />
+    <Content Include="Img\книга17.jpg" />
+    <Content Include="Img\книга18.jpg" />
+    <Content Include="Img\книга19.jpg" />
     <Content Include="Img\книга2.jpg" />
+    <Content Include="Img\книга20.jpg" />
     <Content Include="Img\книга3.jpg" />
     <Content Include="Img\книга4.jpg" />
     <Content Include="Img\книга5.jpg" />
@@ -210,6 +219,7 @@
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomesController.cs" />
     <Compile Include="Controllers\NavController.cs" />
+    <Compile Include="Controllers\NewBookController.cs" />
     <Compile Include="Controllers\PrivateOfficeController.cs" />
     <Compile Include="Controllers\SaleStoreController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -261,6 +271,7 @@
     <Content Include="Views\Users\EditUser.cshtml" />
     <Content Include="Views\SaleStore\Sale.cshtml" />
     <Content Include="Views\PrivateOffice\PrivateOffice.cshtml" />
+    <Content Include="Views\NewBook\NewBook.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,6 +1,4 @@
-﻿if (this.User.IsInRole("admin"))
-{
-@model Domain.Entities.Book
+﻿@model Domain.Entities.Book
 
 @{
     ViewBag.Title = "Режим редактирования";
@@ -11,33 +9,72 @@
 @*Админ. панель для редактирования книг*@
 
 <div class="panel">
-    <div>
+    <div class="panel-heading">
         <h3>Редактирование книг "@Model.Name"</h3>
     </div>
 
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Edit", "Admin", 
+        FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
-        <div class="panel-body">
-            @Html.HiddenFor(m => m.BookId)
-            @foreach (var property in ViewData.ModelMetadata.Properties)
+    
+      <div class="panel-body">
+        @Html.HiddenFor(m => m.BookId)
+        @foreach (var property in ViewData.ModelMetadata.Properties)
+        {
+            switch (property.PropertyName)
             {
-                if (property.PropertyName != "BookId")
-                {
-                    <div class=" form-group">
-                        <label>@(property.DisplayName ?? property.PropertyName)</label>
-                        @if (property.PropertyName == "Description")
-                        {
-                            @Html.TextArea(property.PropertyName, null, new { @class = "form-control", rows = 5 })
-                        }
-                        else
-                        {
-                            @Html.TextArea(property.PropertyName, null, new { @class = "form-control" })
-                        }
-                        @Html.ValidationMessage(property.PropertyName)
-                    </div>
-                }
+                case "BookId":
+                case "ImageData":
+                case "ImageMimeType":
+                    break;
+                default:
+                 <div class=" form-group">
+                    <label>@(property.DisplayName ?? property.PropertyName)</label>
+                    @if (property.PropertyName == "Description")
+                    {
+                        @Html.TextArea(property.PropertyName, null,
+                       new { @class = "form-control", rows = 5 })
+                    }
+                    else if (property.PropertyName == "Price")
+                    {
+                        @Html.TextBox(property.PropertyName, null,
+                       new { @class = "form-control", Value = String.Format("{0:0.##}", Model.Price) })
+                    }
+                    else
+                    {
+                        @Html.TextBox(property.PropertyName, null,
+                                new { @class = "form-control" })
+                    }
+                    @Html.ValidationMessage(property.PropertyName)
+                   </div>
+                    break;
+            }
+        }
+        <div class="form-group">
+            <div style="position:relative;">
+                <label>Картинка</label>
+                <a class='btn' href='javascript:;'>
+                    Выберите файл...
+                    <input type="file" name="Image" size="40"
+                           style="position:absolute;z-index:2;top:0;
+                                left:0;filter: alpha(opacity=0); opacity:0;
+                                background-color:transparent;color:transparent;"
+                           onchange='$("#upload-file-info").html($(this).val());'>
+                </a>
+                <span class='label label-info' id="upload-file-info"></span>
+            </div>
+            @if (Model.ImageData == null)
+            {
+                <div class="form-control-static">Нет картинки</div>
+            }
+            else
+            {
+                <img class="img-thumbnail" width="150" height="150"
+                     src="@Url.Action("GetImage", "Book",
+                        new { Model.BookId })" />
             }
         </div>
+    </div>
 
         //Отмена и сохранение редактировани
         <div class="panel-footer">
@@ -46,4 +83,3 @@
         </div>
     }
 </div>
-        }
